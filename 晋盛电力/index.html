@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<style type="text/css">
+		#fp-nav ul li a.active span{
+			background: #34a7a3;
+
+		}
+		#fp-nav ul li a span{
+			 border: 1px solid white;
+			 width: 13px;
+			height: 13px;
+		}
+		.section1{background: url(images/page1_bg.jpg) 60%;}
+		.section2{background: url(images/page2_bg.jpg) 60%;}
+		.section3{background: url(images/page3_bg.jpg) 60%;}
+		/*.section1 p { position: relative; left: -120%;}*/
+		#box2{width: 1200px;height: 210px;position: fixed;right: 120%;z-index: 10;}
+		#box2 .logo{float: left;}
+		#box2 .nav_box{width: 950px;height: 80px;background: rgba(255,255,255,0.3); margin-top: 50px;margin-left: 250px;padding-top: 30px;padding-right: 100px;}
+		#box2 .nav_box ul{width: 650px;height: 17px;margin-left: 250px; }
+		#box2 .nav_box ul li{float: left;width: 68px;height: 17px;border-right: 2px solid #fff;padding-left: 5px;}
+		#box2 .nav_box ul li a{font-size: 14px;color: #fff;font-weight: 600;display: block;}
+		#box2 .nav_box ul li a:hover{color:#35a7a3; }
+		/*#dowebok .section1 .nr_box{width: 100%;height: 80px; margin-top: 100px;}*/
+		.section1 #box1{width: 800px;text-align: center; margin: 0 auto;}
+		.section1 #box1:hover{transform: scale(1.1);transition: 1s all;}
+		.section1 #box1 h2{font-size: 38px;color: #fff;font-weight: 800;text-shadow: 5px 5px 5px #4c4d51;position: relative; top: -400px;}
+		.section1 #box1 p{font-size: 16px;color: #fff;font-style:italic;letter-spacing: 5px;font-weight: 600;position: relative; top: -400px;}
+		#btn{width: 100%;height: 50px;background: #101010; text-align: center;margin: 0 auto;line-height: 50px;position: fixed;top: 92%;left:120%;z-index: 10;border-top: 1px solid #35a7a3;}
+		#btn p{font-size: 14px;color: #fff;}
+		
+		.section2{}
+		.section2 #nr{width: 820px;height: 400px;position: relative;top: 3%;left: 10%;}
+		.section2 #nr img{width: 820px;height: 400px;position: relative;top: 3%;left: 17%;}
+		.section2 #nr #box3{position: relative;text-align: center;width: 720px; height: 300px;position: absolute;top: 17%;left: -120%;}
+		.section2 #nr #box3 h3{font-size: 20px;font-weight: 800;color: #000;margin-bottom: 10px;/*position: absolute;left: 45%;*/}
+		.section2 #nr #box3 p{font-size: 13px;line-height: 20px; text-indent:32px;/*position: absolute;top: 300px;*/}
+		.section2 #more{width: 200px;height: 40px;border:1px solid #fff;border-radius: 10px;text-align: center;line-height: 40px;position: absolute;top: 100%;left: 45%;}
+		.section2 #more a{font-size: 14px;color: #fff;}
+		.section2 #more:hover{background: #35a7a3;transition: 1s all;}
+		.section2 #nr:hover{transform: scale(1.1);transition: 1s all;}
+
+		.section3{position: relative;}
+		.section3 img{width: 100%;height:auto;position: absolute;}
+		.section3 ul{position: relative;}
+		.section3 ul .gc1{width: 180px; height: 180px;float: left;position: absolute;top: -500px;left: 150px;display: none;}
+		.section3 ul .gc1 img{width: 180px; height: 180px;border-radius: 50%;}
+		.section3 ul .gc1 .gc{width: 100%;position: absolute;top: 42%;left: 0px;color: #333;font-size: 16px;text-shadow: 1px 1px #fff;-webkit-text-shadow: 1px 1px #fff;text-align: center;}
+		.section3 ul .gc2{width: 180px; height: 180px;float: left;position: absolute;top: 500px;left: 400px;display: none;}
+		.section3 ul .gc2 img{width: 180px; height: 180px;border-radius: 50%;}
+		.section3 ul .gc2 .gc{width: 100%;position: absolute;top: 42%;left: 0px;color: #333;font-size: 16px;text-shadow: 1px 1px #fff;-webkit-text-shadow: 1px 1px #fff;text-align: center;}
+		.section3 ul .gc3{width: 180px; height: 180px;float: left;position: absolute;top: -500px;left: 650px;display: none;}
+		.section3 ul .gc3 img{width: 180px; height: 180px;border-radius: 50%;}
+		.section3 ul .gc3 .gc{width: 100%;position: absolute;top: 42%;left: 0px;color: #333;font-size: 16px;text-shadow: 1px 1px #fff;-webkit-text-shadow: 1px 1px #fff;text-align: center;}
+		.section3 ul li:hover{transform: rotate(360deg); transition: all 1s ease-in-out;}
+	</style>
+	<script src="js/jquery-1.11.1.js"></script>
+	<script src="js/jquery.fullPage.min.js"></script>
+	<script src="js/index.js"></script>
+
+</head>
+<body>
+	<div class="header" id="box2">
+		<div class="logo"><img src="images/logo.png"></div>
+			<div class="nav_box">
+				<ul id="menu" class="nav">
+			
+					<li data-menuanchor="page1" class="active"><a href="#page1">网站首页</a></li>
+					<li data-menuanchor="page2"><a href="#page2">公司简介</a></li>
+					<li data-menuanchor="page3"><a href="#page3">新闻中心</a></li>
+					<li data-menuanchor="page4"><a href="#page4">工程业绩</a></li>
+					<li data-menuanchor="page2"><a href="#page5">招聘中心</a></li>
+					<li data-menuanchor="page3"><a href="#page6">员工风采</a></li>
+					<li data-menuanchor="page4"><a href="#page7">客户留言</a></li>
+					<li data-menuanchor="page2"><a href="#page8">联系我们</a></li>
+				</ul>
+			</div>
+	</div>
+	
+	<div class="bottom" id="btn">
+		<p>版权所有：山西晋盛电力工程有限公司        地址：山西省太原市小店区许东路许东佳苑临街商铺B-09     备案号：晋ICP备13000949号</p>
+	</div> 
+
+	<div id="dowebok">
+		<div class="section section1">
+				<div id="box1"> 
+					<h2>安全第一、质量第一、服务第一</h2>
+					<p>以过硬的技术和一流的装备面向市场，以一流的质量和周到的服务回报客户</p>
+				</div>
+						 
+		</div>
+		<div class="section section2">
+			<div id="nr">
+				<img src="images/pg2_conbg.png">		
+				<div id="box3">
+					<h3>公司简介</h3>
+							
+							<p>    山西晋盛电力工程有限公司成立于2007年，座落于省会太原，注册资金4000万元。公司是专业从事电力变配电工程、通讯工程、自动化工程施工、安装、维护以及土石方工程、房屋建筑工程施工的民营企业，并具备国家电力施工总承包贰级资质，是国家电网的合格分包商，也是国家电网太原供电分公司的入围企业，亦为太原市纳税百强企业。现企业拥有技术及管理人员80余人，其中高级职称25人，工程师40人；另配有报审批手续专业团队，完全有能力确保我公司承揽的工程顺利达到送电要求。</p>
+							<p>    公司自成立以来，承接了省内一大批重点电力建设工程，签署合同上百份，所有通过竣工验收的项目，均已按时送电，投入使用，得到了国家电网山西供电公司、太原供电分公司及广大用户的一致认可。我公司主要施工的工程有：国家电网汾东（云计算）220KV输变电工程、国家电网铜厂220KV变电站土建工程、狮头水泥厂110KV变电站土建及安装工程、山西国际会议中心变配电工程、太原湖滨国际大酒店变配电工程、茂业天地项目变配电工程、山西省中医药研究院门诊综合楼电力工程、太原市劲松路2号棚户区改造安置住房项目高低压配电室供配电设备采购及安装项目、太原高铁南站部分正式电源工程、山西日报社变电站迁建项目、太原兰亭•御湖城项目正式用电工程、太原富力城正式电源工程、太原武宿国际机场高低压配电系统工程等。 </p>
+				</div>
+			</div>
+			
+				<div id="more">
+					<span id="ckgd"><a href="#">查看更多</a></span>
+				</div>
+			
+		</div>
+		<div class="section section3">
+			<img src="images/pg3_qxbg.png">
+			<ul>
+				<li class="gc1">
+					<a href="#">
+						<img src="images/01.jpg">
+						<span class="gc">太原武宿机场改扩建变配电工程</span>
+					</a>
+				</li>
+				<li class="gc2">
+					<a href="#">
+						<img src="images/02.jpg">
+						<span class="gc">太原茂业天地项目住宅区域正式电源工程</span>
+					</a>
+				</li>
+				<li class="gc3">
+					<a href="#">
+						<img src="images/03.jpg">
+						<span class="gc">太原茂业天地项目百货区域正式电源工程</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	
+</body>
+</html>
